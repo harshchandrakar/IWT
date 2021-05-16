@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment-7</title>
+    <script>
+        function fn(){
+            var str = document.querySelector(".top").value;
+            var lastname = document.querySelector(".middle").value;
+            var email = document.querySelector(".bottom").value
+            document.getElementById("print").innerHTML = "First name: " +str + "," + "Last name: " + lastname + "," + "Email: "+email
+}
+    </script>
+    <style>
+body {
+  text-align: center;
+}
+.top {
+  width: 15vw;
+  height: 2rem;
+  background-color: #edffec;
+  border-color: gray;
+  border-width: 1px;
+  border-radius: 7px;
+  margin: 0.5em;
+}
+
+
+.btn {
+  width: 10vw;
+  height: 2rem;
+  margin-top: 20px;
+  background-color: #e4bad4;
+  border-radius: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div>
+        <form action="">
+            <input type="text" class="top" placeholder="First name"><br>
+            <input type="text" class="top middle" placeholder="last name"><br>
+            <input type="email" class="top bottom" name="email" placeholder="xyz@example.com"><br>
+            <button type="button" onclick="fn()" class="btn" >Submit</button>
+        </form>
+    </div>
+    <h1 id ="print"></h1>
+</body>
+</html>

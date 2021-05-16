@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function stateChange(){
+            var x = document.getElementById("st").value
+            var In = document.getElementById("capital").innerHTML
+            if (x === "cg"){
+                document.getElementById("capital").innerHTML = "Chhattisgarh capital is Raipur"
+            }else if(x === "mp") {
+                document.getElementById("capital").innerHTML = "Madhya pradesh capital is Bhopal"
+            }else if(x === "os") {
+                document.getElementById("capital").innerHTML = "Orissa capital is Bhubaneswar"
+            }else if(x === "up") {
+                document.getElementById("capital").innerHTML = "Uttar Pradesh capital is Lucknow"
+            }else if(x === "gj") {
+                document.getElementById("capital").innerHTML = "Gujrat capital is Gandhinagar"
+            }
+        }
+    </script>
+    <style>
+        #capital{
+            font-family: 'Times New Roman', Times, serif;
+            color: royalblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select state for Capital </h1>
+    <form action="post">
+        <select name="state" id="st" onchange="stateChange()">
+            <option value="cg">Chhattisgarh</option>
+            <option value="mp">Madhya pradesh</option>
+            <option value="os">Orissa</option>
+            <option value="up">Uttar Pradesh</option>
+            <option value="gj">Gujrat</option>
+        </select>
+    </form>
+    <h1 id="capital"></h1>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function toWord(s){
+            hyphen = '-';
+            conjunction = ' and ';
+            separator = ', ';
+            dictionary = {
+                0 : 'zero',
+                1 : 'one',
+                2 : 'two',
+                3 : 'three',
+                4 : 'four',
+                5 : 'five',
+                6 : 'six',
+                7 : 'seven',
+                8 : 'eight',
+                9 : 'nine',
+                10 : 'ten',
+                11 : 'eleven',
+                12 : 'twelve',
+                13 : 'thirteen',
+                14 : 'fourteen',
+                15 : 'fifteen',
+                16 : 'sixteen',
+                17 : 'seventeen',
+                18 : 'eighteen',
+                19 : 'nineteen',
+                20 : 'twenty',
+                30 : 'thirty',
+                40 : 'fourty',
+                50 : 'fifty',
+                60 : 'sixty',
+                70 : 'seventy',
+                80 : 'eighty',
+                90 : 'ninety',
+                100 : 'hundred',
+            };
+            switch(true){
+                case(s<21):
+                    str = dictionary[s]
+                    break
+                case(s < 100):
+                    tens = parseInt(s/10)*10;
+                    units = s%10;
+                    str =dictionary[tens];
+                    if (units) {
+                    str += hyphen + dictionary[units];
+                    }
+                    break;
+                    case (s < 1000):
+                        hundreds = parseInt(s / 100);
+                        remainder = s % 100;
+                        str = dictionary[hundreds] + ' ' + dictionary[100];
+                        if (remainder) {
+                        str += conjunction + toWord(remainder)
+                        }
+                        break;
+                    default:
+                        break;
+
+                }
+                return str
+
+        }
+        
+        function word(){
+            var x = document.getElementById("num").value;
+             console.log(x)
+            if (isNaN(+x)){
+                document.getElementById("word").innerHTML = "it is not a number"
+            }else if(+x<=0 || +x>=999){
+                document.getElementById("word").innerHTML = "number not in range"
+            }else if(0< +x <999){
+                document.getElementById("word").innerHTML = toWord(+x)
+            }
+        }
+    </script>
+</head>
+<body>
+    <form >
+        <input type="text" name="number" id="num"><br>
+        <button type="button" onclick="word()">submit</button>
+    </form>
+    <h1 id="word" ></h1>
+</body>
+</html>

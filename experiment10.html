@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function emailValidation(em){
+            var emaiid = em.value
+            adpostion = emaiid.indexOf("@")
+            dotposition = emaiid.indexOf(".")
+            if ( adpostion <1 || ( (dotposition - adpostion) < 2 )){
+                
+                return true
+
+            }
+            return (false)
+        }
+        function CheckPassword(inputtxt) 
+                { 
+                var paswd=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+                if(inputtxt.value.match(paswd)) 
+                { 
+                return false;
+                }
+                else
+                {
+                return true;
+                }
+            }  
+        function checking(){
+            if (document.getElementById("fname") == "" || document.getElementById("lname") == "" ){
+                alert("please put name Properly")
+                document.getElementById("fname").focus()
+                document.getElementById("lname").focus()
+            }
+            if (emailValidation(document.getElementById("emailid")) || document.getElementById("emailid").value == "" ){
+                alert("please enter valid email")
+                document.getElementById("emailid").focus()
+            }
+            if (document.getElementById("num").value == "" || isNaN(document.getElementById("num").value) || document.getElementById("num").value.length !=10){
+                alert("Enter valid number")
+                document.getElementById("num").focus()
+
+            }
+            if (CheckPassword(document.getElementById("pass1")) ){
+                alert("enter valid password containing 7-15 chaaracter , capital letter , small letter , symbol amd number")
+                document.getElementById("pass1").focus()
+                document.getElementById("pass2").focus()
+            }
+            if (document.getElementById("pass1").value != document.getElementById("pass1")){
+                alert("password does not match")
+                document.getElementById("pass1").focus()
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <form action="">
+        <label for="fname">First Name:</label>
+        <input type="text" name="fname" id="fname" placeholder="First name"><br>
+        <br>
+        <label for="lname">Last Name:</label>
+        <input type="text" name="lname" id="lname" placeholder="Last name"><br>
+        <br>
+        <p>Please select your gender:</p>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label><br>
+        <br>
+        <label for="emaiid"> Email:</label>
+        <input type="email" name="email" id="emailid"><br>
+        <br>
+        <label for="num">Phone Number:</label>
+        <input type="text" name="num" id="num"><br>
+        <br>
+        <label for="pass1">New Password:</label>
+        <input type="password" name="pass1" id="pass1"><br>
+        <br>
+        <label for="pass2">Renter Password:</label>
+        <input type="password" name="pass2" id="pass2"><br>
+        <br>
+        <button type="button" onsubmit="checking()">Register</button>
+    </form>
+</body>
+</html>
